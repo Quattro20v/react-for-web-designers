@@ -2,14 +2,19 @@
   "use strict";
 
 
+  function ProductImage(props) {
+    return React.createElement("img", { src: "../../../assets/red.jpg", alt: "Product image"})
+  }
+
+
   function ProductCustomizer(props) {
-      React.createElement(
+      return React.createElement(
       "div",
       { className: "customizer" },
-      "Product customizer will go here"
+      React.createElement("div", { className: "product-image" }< React.createElement(ProductImage))
     );    
   }
 
 
-  ReactDOM.render(ProductCustomizer, document.getElementById("react-root"));
+  ReactDOM.render(React.createElement(ProductCustomizer), document.getElementById("react-root"));
 })();
