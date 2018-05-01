@@ -34,6 +34,9 @@
         <div className="product-image">
           <ProductImage />
         </div>
+        <div className="selectors">
+          <SizeSelector />
+        </div>
       </div>
     );
   }
