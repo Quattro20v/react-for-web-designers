@@ -13,7 +13,7 @@
     }
     
     function onSizeChange(evt) {
-      console.log('Change event fired", evt');
+      props.handleSizeChange(evt.target.value);
     }
 
     return (
@@ -63,6 +63,16 @@
         sizes: sizes
       };
     },
+    
+    handeSizeChange: function(selectedSize) {
+      console.log('parent handleSizeChange', selectedSize);
+      
+      var availableColors = window.Inventory.bySize[selectedSize];
+      
+      this.setState({
+        colors: availableColors
+      });
+    },
 
     render: function() {
       return (
@@ -71,7 +81,7 @@
             <ProductImage color={this.state.color} />
           </div>
           <div className="selectors">
-            <SizeSelector size={this.state.size} sizes={this.state.sizes} />
+            <SizeSelector size={this.state.size} sizes={this.state.sizes} handleSizeChange={this.handleSizeChange} />
             <ColorSelector color={this.state.color} colors={this.state.colors} />
           </div>
         </div>
