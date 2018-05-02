@@ -11,11 +11,15 @@
         );
       });
     }
+    
+    function onSizeChange(evt) {
+      console.log('Change event fired", evt');
+    }
 
     return (
       <div className="field-group">
         <label htmlFor="size-options">Size:</label>
-        <select defaultValue={props.size} name="sizeOptions" id="size-options">
+        <select defaultValue={props.size} name="sizeOptions" id="size-options" onChange={onSizeChange}>
           {sizeOptions()}
         </select>
       </div>
