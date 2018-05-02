@@ -82,8 +82,26 @@
       var availableColors = window.Inventory.bySize[selectedSize];
 
       this.setState({
-        colors: availableColors
+        colors: availableColors,
+        size: selectedSize
       });
+      
+      if (availableColors.indexOf(this.state.color) === -1) {
+        this.setState({ color: availableColors[0] });
+      }
+    },
+    
+    handleColorChange: function(selectedColor) {
+      var availableSizes = window.Inventory.bySize[selectedColor];
+
+      this.setState({
+        sizes: availableSizes,
+        color: selectedColor
+      });
+      
+      if (availableSizes.indexOf(this.state.size) == -1) {
+        this.setState({ color: availableSizes[0] });
+      }
     },
 
     render: function() {
