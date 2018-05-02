@@ -22,6 +22,27 @@
     );
   }
 
+  function ColorSelector(props) {
+    function colorOptions() {
+      return props.colors.map(function(name) {
+        return (
+          <option value={name} key={name}>
+            {name}
+          </option>
+        );
+      });
+    }
+
+    return (
+      <div className="field-group">
+        <label htmlFor="color-options">Color:</label>
+        <select defaultValue={props.color} name="colorOptions" id="color-options">
+          {colorOptions()}
+        </select>
+      </div>
+    );
+  }
+
   function ProductImage(props) {
     return (
       <img src={`../../../assets/${props.color}.jpg`} alt="Product Image" />
