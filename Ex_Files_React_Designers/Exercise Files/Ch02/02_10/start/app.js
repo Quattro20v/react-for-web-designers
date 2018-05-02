@@ -40,6 +40,10 @@
         );
       });
     }
+    
+    function onColorChange(evt) {
+      props.handleColorChange(evt.target.value);
+    }
 
     return (
       <div className="field-group">
@@ -47,7 +51,8 @@
         <select
           defaultValue={props.color}
           name="colorOptions"
-          id="color-options">
+          id="color-options"
+          onChange={onColorChange}>
           {colorOptions()}
         </select>
       </div>
