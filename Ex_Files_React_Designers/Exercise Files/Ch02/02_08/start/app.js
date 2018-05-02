@@ -51,10 +51,12 @@
 
   var ProductCustomizer = createReactClass({
     getInitialState: function() {
-      var sizes = window.Inventory.allSizes;
+      var sizes = window.Inventory.allSizes,
+      colors = window.Inventory.allColors;
 
       return {
         color: "red",
+        colors: colors,
         size: 8,
         sizes: sizes
       };
@@ -68,6 +70,7 @@
           </div>
           <div className="selectors">
             <SizeSelector size={this.state.size} sizes={this.state.sizes} />
+            <ColorSelector color={this.state.color} colors={this.state.colors} />
           </div>
         </div>
       );
